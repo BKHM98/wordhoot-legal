@@ -3,24 +3,58 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Word Hoot</title>
+<title>Word Hoot — Crack the Code</title>
+<link rel="icon" type="image/png" href="./assets/icon.png" />
+<link rel="apple-touch-icon" href="./assets/icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Grandstander:wght@700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <style>
-  :root { --navy:#12162B; --brass:#E0A32E; --paper:#F7F3EA; }
-  body { margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px;
-         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--navy); color:#F1E9D6; text-align:center; padding:24px; }
-  .brand { font-size:40px; font-weight:800; }
+  :root { --navy:#12162B; --brass:#F0B23E; --cream:#F1E9D6; --soft:#9AA0BE; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:6px; font-family:"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--navy); color:var(--cream); text-align:center; padding:32px 24px; overflow:hidden;
+  }
+  .pattern { position:fixed; inset:0; pointer-events:none; font-weight:900; }
+  .pattern span {
+    position:absolute; width:44px; height:44px; border:2px solid rgba(241,233,214,.07); border-radius:11px;
+    color:rgba(241,233,214,.08); font-size:24px; line-height:42px; text-align:center;
+  }
+  .pattern .glyph { border:none; font-size:26px; }
+  .owl { width:min(230px, 52vw); height:auto; filter:drop-shadow(0 14px 30px rgba(0,0,0,.45)); position:relative; z-index:1; }
+  .brand { font-family:"Grandstander",cursive; font-weight:700; font-size:clamp(38px, 9vw, 54px); line-height:1.1; position:relative; z-index:1; }
   .brand span { color:var(--brass); }
-  .tag { color:#9AA0BE; margin-top:-8px; }
-  .links { display:flex; gap:14px; margin-top:10px; flex-wrap:wrap; justify-content:center; }
-  .links a { background:var(--brass); color:#3a2c08; text-decoration:none; font-weight:700; padding:12px 20px; border-radius:999px; }
+  .tag { color:var(--soft); font-weight:700; letter-spacing:3px; font-size:13px; text-transform:uppercase; position:relative; z-index:1; }
+  .links { display:flex; gap:14px; margin-top:22px; flex-wrap:wrap; justify-content:center; position:relative; z-index:1; }
+  .links a {
+    background:var(--brass); color:#3a2c08; text-decoration:none; font-weight:800; padding:13px 22px;
+    border-radius:999px; box-shadow:0 4px 0 #C6871B;
+  }
+  .links a.ghost { background:transparent; color:var(--cream); box-shadow:inset 0 0 0 2px rgba(241,233,214,.3); }
 </style>
 </head>
 <body>
+  <div class="pattern" aria-hidden="true">
+    <span style="left:8%;  top:10%; transform:rotate(-12deg)">W</span>
+    <span style="left:86%; top:8%;  transform:rotate(9deg)">O</span>
+    <span style="left:12%; top:44%; transform:rotate(7deg)">R</span>
+    <span style="left:90%; top:38%; transform:rotate(-8deg)">D</span>
+    <span style="left:6%;  top:78%; transform:rotate(10deg)">H</span>
+    <span style="left:88%; top:72%; transform:rotate(-14deg)">T</span>
+    <span class="glyph" style="left:24%; top:22%; transform:rotate(14deg)">?</span>
+    <span class="glyph" style="left:74%; top:56%; transform:rotate(-10deg)">✦</span>
+    <span class="glyph" style="left:20%; top:64%; transform:rotate(8deg)">🔍</span>
+    <span class="glyph" style="left:76%; top:18%; transform:rotate(-5deg)">✦</span>
+  </div>
+
+  <img class="owl" src="./assets/owl-cheer.png" alt="Sleuth the owl celebrating" />
   <div class="brand">Word<span>Hoot</span></div>
-  <div class="tag">crack the code</div>
+  <div class="tag">Crack the code</div>
   <div class="links">
-    <a href="./privacy.html">Privacy Policy</a>
     <a href="./support.html">Support</a>
+    <a class="ghost" href="./privacy.html">Privacy Policy</a>
   </div>
 </body>
 </html>

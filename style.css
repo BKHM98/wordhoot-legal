@@ -1,0 +1,154 @@
+/* Word Hoot — shared brand styling for the legal/support pages.
+   Mirrors the app: navy ink + brass gold on case-file paper (light) or noir (dark),
+   Grandstander display face, Nunito body, and the letter-tile ambient pattern. */
+
+:root {
+  --bg: #F4EEE0;
+  --card: #FFFDF7;
+  --ink: #1B2440;
+  --ink-soft: #6B7089;
+  --primary: #2E3A66;
+  --brass: #E0A32E;
+  --brass-deep: #B47F16;
+  --green: #38C172;
+  --line: rgba(27, 36, 64, 0.12);
+  --tile-line: rgba(27, 36, 64, 0.10);
+  --tile-text: rgba(27, 36, 64, 0.09);
+  --shadow: 0 10px 30px rgba(11, 14, 31, 0.10);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #12162B;
+    --card: #1D2340;
+    --ink: #F1E9D6;
+    --ink-soft: #9AA0BE;
+    --primary: #3E4C7E;
+    --brass: #F0B23E;
+    --brass-deep: #F0B23E;
+    --green: #3ECB7D;
+    --line: rgba(241, 233, 214, 0.12);
+    --tile-line: rgba(241, 233, 214, 0.07);
+    --tile-text: rgba(241, 233, 214, 0.07);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background-color: var(--bg);
+  line-height: 1.7;
+  font-size: 16.5px;
+}
+
+/* Ambient letter-tile pattern, echoing the home screen background. */
+.pattern {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  font-family: "Nunito", sans-serif;
+  font-weight: 900;
+}
+.pattern span {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--tile-line);
+  border-radius: 11px;
+  color: var(--tile-text);
+  font-size: 24px;
+  line-height: 42px;
+  text-align: center;
+}
+.pattern .glyph { border: none; font-size: 26px; }
+
+.page { position: relative; z-index: 1; }
+
+/* Header band — the in-app screen header: navy pill, brass lip, peeking owl. */
+.bar-wrap { max-width: 760px; margin: 26px auto 0; padding: 0 20px; }
+.bar {
+  position: relative;
+  background: var(--primary);
+  border-radius: 18px;
+  border-bottom: 4px solid var(--brass);
+  box-shadow: var(--shadow);
+  padding: 20px 24px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+}
+.bar .brand {
+  font-family: "Grandstander", cursive;
+  font-weight: 700;
+  font-size: 30px;
+  color: #FFFFFF;
+  text-decoration: none;
+  line-height: 1;
+}
+.bar .brand span { color: var(--brass); }
+.bar img.peek {
+  position: absolute;
+  right: 10px;
+  bottom: -4px;
+  width: 132px;
+  height: auto;
+}
+@media (max-width: 480px) {
+  .bar img.peek { width: 104px; }
+  .bar .brand { font-size: 25px; }
+}
+
+main { max-width: 760px; margin: 0 auto; padding: 28px 20px 70px; }
+
+.card {
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 34px 34px 30px;
+}
+@media (max-width: 480px) { .card { padding: 26px 22px 24px; } }
+
+h1 {
+  font-family: "Grandstander", cursive;
+  font-weight: 700;
+  font-size: 34px;
+  color: var(--ink);
+  margin: 0 0 2px;
+  line-height: 1.2;
+}
+h1 .accent { color: var(--brass-deep); }
+
+h2 {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 1.7em 0 0.3em;
+}
+h2::before { content: "🔍 "; font-size: 15px; }
+
+.updated { color: var(--ink-soft); font-size: 14px; font-weight: 600; margin-bottom: 1.6em; }
+
+p { margin: 0.5em 0 0.9em; }
+strong { font-weight: 800; }
+a { color: var(--brass-deep); font-weight: 700; }
+
+.foot {
+  border-top: 1.5px solid var(--line);
+  margin-top: 42px;
+  padding-top: 18px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.foot img { width: 26px; height: 26px; border-radius: 7px; }
+.foot a { color: var(--ink-soft); }
